@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model Offering {
+    id          String   @id @default(cuid())
+    title       String
+    description String
+    duration    String
+    price       String
+    category    String   // "energy-healing", "coaching", "massage", "somatic-therapy"
+    order       Int      @default(0)
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
+
+model Review {
+    id         String   @id @default(cuid())
+    name       String
+    title      String?
+    content    String
+    rating     Int      // 1-5
+    featured   Boolean  @default(false)
+    approved   Boolean  @default(false)
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+}
+
+model BookingRequest {
+    id              String   @id @default(cuid())
+    name            String
+    email           String
+    phone           String?
+    offeringIds     String   // JSON array of offering IDs
+    clientStory     String   // Why they want to book / what they need help with
+    preferredDates  String?  // Optional preferred dates
+    status          String   @default("pending") // "pending", "contacted", "scheduled", "completed"
+    createdAt       DateTime @default(now())
+    updatedAt       DateTime @updatedAt
+}
+
+model GroupEvent {
+    id          String   @id @default(cuid())
+    title       String
+    description String
+    eventDate   DateTime
+    duration    String
+    maxSlots    Int
+    bookedSlots Int      @default(0)
+    price       String
+    location    String?
+    online      Boolean  @default(false)
+    featured    Boolean  @default(false)
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
