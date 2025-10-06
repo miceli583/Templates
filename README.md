@@ -17,7 +17,9 @@ Open [http://localhost:3000](http://localhost:3000) to browse the gallery.
 
 1. Click the button above or connect your repository to Vercel
 2. Vercel will automatically detect the Next.js configuration
-3. Deploy!
+3. Add environment variable: `SKIP_ENV_VALIDATION=true`
+4. (Optional) For database features, add a Vercel Postgres database and set `DATABASE_URL`
+5. Deploy!
 
 ## Templates Included
 
