@@ -123,9 +123,7 @@ export default function HomePage() {
           {templates.map((template) => (
             <div
               key={template.id}
-              className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 transition-all duration-500 hover:scale-[1.02] hover:border-white/40 flex flex-col ${
-                template.comingSoon ? "opacity-60" : ""
-              }`}
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 transition-all duration-500 hover:scale-[1.02] hover:border-white/40 flex flex-col"
             >
               {/* Hover glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-purple-500/0 group-hover:from-purple-500/10 group-hover:via-pink-500/10 group-hover:to-purple-500/10 transition-all duration-500 rounded-2xl" />
@@ -142,7 +140,7 @@ export default function HomePage() {
                   <h2 className="text-lg font-bold text-white leading-tight mb-2">
                     {template.name}
                   </h2>
-                  <span className={`inline-block rounded-full bg-gradient-to-r from-${template.accentColor}-500/20 to-${template.accentColor}-600/20 border border-${template.accentColor}-500/30 px-2 py-1 text-xs font-semibold text-${template.accentColor}-300`}>
+                  <span className={`inline-block rounded-full bg-gradient-to-r from-${template.accentColor}-500/20 to-${template.accentColor}-600/20 border border-${template.accentColor}-500/30 px-2 py-1 text-xs font-semibold text-white`}>
                     {template.category}
                   </span>
                 </div>
@@ -173,36 +171,17 @@ export default function HomePage() {
                 )}
 
                 <div className="mt-auto">
-                  {template.comingSoon ? (
-                    <button
-                      disabled
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-2.5 text-xs font-semibold text-gray-500 cursor-not-allowed"
-                    >
-                      Coming Soon
-                    </button>
-                  ) : (
-                    <Link
-                      href={template.path}
-                      className="group/btn block w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-2.5 text-center text-xs font-semibold text-white shadow-lg shadow-purple-500/25 transition-all hover:shadow-xl hover:shadow-purple-500/40 hover:scale-[1.02]"
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        View Template
-                        <span className="transition-transform group-hover/btn:translate-x-1">→</span>
-                      </span>
-                    </Link>
-                  )}
+                  <Link
+                    href={template.path}
+                    className="group/btn block w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-2.5 text-center text-xs font-semibold text-white shadow-lg shadow-purple-500/25 transition-all hover:shadow-xl hover:shadow-purple-500/40 hover:scale-[1.02]"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      View Template
+                      <span className="transition-transform group-hover/btn:translate-x-1">→</span>
+                    </span>
+                  </Link>
                 </div>
               </div>
-
-              {template.comingSoon && (
-                <div className="absolute inset-0 flex items-center justify-center backdrop-blur-[2px]">
-                  <div className="rounded-full bg-gradient-to-r from-gray-900 to-gray-800 border border-white/20 px-6 py-3 shadow-2xl">
-                    <span className="text-sm font-semibold text-gray-300">
-                      Coming Soon
-                    </span>
-                  </div>
-                </div>
-              )}
             </div>
           ))}
         </div>

@@ -4,14 +4,14 @@ import { ZodError } from "zod";
 
 import { db } from "~/server/db";
 
-export const createTRPCContext = async (opts: { headers: Headers }) => {
+export const createTRPCContext = (opts: { headers: Headers }) => {
   return {
     db,
     ...opts,
   };
 };
 
-const t = initTRPC.context<Awaited<ReturnType<typeof createTRPCContext>>>().create({
+const t = initTRPC.context<ReturnType<typeof createTRPCContext>>().create({
   transformer: superjson,
   errorFormatter({ shape, error }) {
     return {
