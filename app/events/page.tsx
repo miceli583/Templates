@@ -85,7 +85,7 @@ export default function EventsPage() {
               Featured Upcoming Events
             </h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {events.map((event) => (
+              {events.map((event: any) => (
                 <div
                   key={event.id}
                   className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow"

@@ -323,7 +323,7 @@ export default function PersonalTemplate2() {
 
           {reviews.length > 0 ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {reviews.map((review) => (
+              {reviews.map((review: any) => (
                 <div
                   key={review.id}
                   className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg p-8 hover:shadow-2xl transition-all border-4 border-orange-200"

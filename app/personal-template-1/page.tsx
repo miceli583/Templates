@@ -249,7 +249,7 @@ export default function HomePage() {
 
           {reviews.length > 0 ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {reviews.map((review) => (
+              {reviews.map((review: any) => (
                 <div
                   key={review.id}
                   className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow"
